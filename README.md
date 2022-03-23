@@ -27,7 +27,7 @@ The first player starts and shakes the phone. He may then look under the glasses
 
 **First - he believes the player: ✅**
 
-If he believes the first player, he is not allowed to check if the mentioned number of the first player was a lie 🤥. He must now shake himself and announce a number that must be higher than the first player's (his foreplayer's) named number. Even if his rolled number is lower. He hands the smartphone 📱 to the next player after announcing. The next player again has these two options.
+If he believes the first player, he is not allowed to check if the mentioned number of the first player was a lie 🤥. He must now shake the smartphone 📱 and announce a number that must be higher than the first player's (his foreplayer's) named number. Even if his rolled number is lower. He hands the smartphone 📱 to the next player after announcing. The next player again has these two options.
 
 **Second - he does not believe the player: ❌**
 
