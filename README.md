@@ -1,29 +1,29 @@
 # Poschen 🎲 - The funny dice game for everyone!
 
-### Equipment 👐 
+## Equipment 👐 
 - A smartphone 📱 and friends, that's all :)
 
-### Setup ⚙️
+## Setup ⚙️
 A smartphone 📱 is needed. All players should be at a table or in a circle 🪑 so that passing the smartphone 📱 is as easy as possible.
 
-### Goal 🥅
+## Goal 🥅
 The objective of the game is to roll a 21 (Mayer) 🎲 or to reveal a lie 🤥 of the accuser.
 
-### Values 🔢
+## Values 🔢
 In classic Poschen, the higher value of a die is interpreted as a tens digit and the lower value as a ones digit.
 
 The order of possible number combinations in ascending value: 31, 32, 41, 42, 43, 52, 53, 54, 61, 62, 63, 64, 65. **65** is the highest number combination that is not a Posch and not a Mayer 🎲. It can only be beaten by them.
 
-### Special number combinations 🎲
+## Special number combinations 🎲
 11, 22, 33, 44, 55, 66. These are called one posch, two posch, three posch, four posch, five posch and six posch. A six posch is the second highest number combination.
 
-### Mayer 🎲
+## Mayer 🎲
 Mayer 🎲 is the number combination 21. It is the highest number combination and cannot be beaten.
  
-### This is how it works 💻
+## This is how it works 💻
 The first player starts and shakes the phone. He may then look under the glasses pocket. The first player enters a number and then says the number and passes the smartphone 📱 to the second player. The first player may announce a number (or a posch/maier) and may lie 🤥 while doing so.
 
-#### The second player now has two options 🙋:
+### The second player now has two options 🙋:
 
 **First - he believes the player: ✅**
 
