@@ -1,7 +1,9 @@
-# Poschen 🎲 - The funny dice game for everyone!
+<p align='center'><img src='https://raw.githubusercontent.com/ZENPAU/Poschen/f920b25985cf8dd35313aca855cefed462647846/img/Logo_2.svg'></p>
+<h3 align='center'><em>The funny dice game for everyone!</em></h3>
 
 ## Equipment 👐 
-- A smartphone 📱 and friends, that's all :)
+- A smartphone 📱
+- Friends
 
 ## Setup ⚙️
 A smartphone 📱 is needed. All players should be at a table or in a circle 🪑 so that passing the smartphone 📱 is as easy as possible.
