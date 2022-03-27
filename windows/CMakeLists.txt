@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
 project(poschen LANGUAGES CXX)
 
-set(BINARY_NAME "poschen")
+set(BINARY_NAME "Poschen")
 
 cmake_policy(SET CMP0063 NEW)
 

@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "poschen" "\0"
+            VALUE "FileDescription", "Poschen" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "poschen" "\0"
+            VALUE "InternalName", "Poschen" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2022 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "poschen.exe" "\0"
-            VALUE "ProductName", "poschen" "\0"
+            VALUE "OriginalFilename", "Poschen.exe" "\0"
+            VALUE "ProductName", "Poschen" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
