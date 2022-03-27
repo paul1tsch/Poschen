@@ -1,4 +1,4 @@
-<p align='center'><img src='https://raw.githubusercontent.com/ZENPAU/Poschen/f920b25985cf8dd35313aca855cefed462647846/img/Logo_2.svg'></p>
+<p align='center'><img src='https://raw.githubusercontent.com/ZENPAU/Poschen/ab920295a9cbdb4a041c67a923410192c20101b9/img/Logo_2.svg'></p>
 <h3 align='center'><em>The funny dice game for everyone!</em></h3>
 
 ## Equipment 👐 
