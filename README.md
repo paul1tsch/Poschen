@@ -21,7 +21,7 @@ The order of possible number combinations in ascending value: 31, 32, 41, 42, 43
 Mayer 🎲 is the number combination 21. It is the highest number combination and cannot be beaten.
  
 ## This is how it works 💻
-The first player starts and shakes the phone. He may then look under the glasses pocket. The first player enters a number and then says the number and passes the smartphone 📱 to the second player. The first player may announce a number (or a posch/maier) and may lie 🤥 while doing so.
+The first player starts and shakes the phone. He may then look under the glasses pocket. The first player enters a number and then says the number and passes the smartphone 📱 to the second player. The first player may announce a number (or a posch/mayer) and may lie 🤥 while doing so.
 
 ### The second player now has two options 🙋:
 
