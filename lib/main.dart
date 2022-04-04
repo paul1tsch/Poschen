@@ -1,5 +1,7 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
-import 'package:just_the_tooltip/just_the_tooltip.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 Color green = const Color(0x166534);
 Color lightgreen = const Color(0x22C55E);
@@ -15,10 +17,25 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        // Background
+        body: SizedBox(
+          height: double.infinity,
+          width: double.infinity,
+          child: Image(
+            image: AssetImage('assets/dice_background.png'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        // Bottom Navigation Bar
         bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
+          backgroundColor: green,
+          fixedColor: green,
+          items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
+              icon: SizedBox(
+                width: 50,
+                height: 50,
+              ),
               label: '',
               tooltip: 'Settings',
             ),
@@ -31,18 +48,13 @@ class MyApp extends StatelessWidget {
           showSelectedLabels: false,
           showUnselectedLabels: false,
         ),
-        body: SizedBox(
-          height: double.infinity,
-          child: Image(
-            image: AssetImage('assets/dice_background.png'),
-            fit: BoxFit.fitHeight,
-          ),
-        ),
+        // FloatingButton
         floatingActionButton: FloatingActionButton(
           onPressed: _startGame,
           tooltip: 'Start Game',
-          child: const Icon(Icons.add),
+          child: Icon(Icons.add),
         ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       ),
     );
   }
