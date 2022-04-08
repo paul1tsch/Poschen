@@ -1,61 +1,87 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-
-Color green = const Color(0x166534);
-Color lightgreen = const Color(0x22C55E);
+import 'package:poschen/constants.dart';
+import 'package:poschen/screens/Play.dart';
+import 'package:poschen/screens/about.dart';
+import 'package:poschen/screens/settings.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(StartScreen());
 }
 
 void _startGame() {}
+//
+//
+// List pages = [
+//   Settings(),
+//   Play(),
+//   About()
+// ];
+//
+// int currentIndex = 0;
+// void onTap(int index){
+//   setState((){
+//     currentIndex = index;
+//   });
+// }
 
-class MyApp extends StatelessWidget {
+
+class StartScreen extends StatelessWidget{
+  const StartScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
+
+
+
     return MaterialApp(
+      title: 'Poschen',
+      theme: Constants.theme,
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        // Background
-        body: SizedBox(
-          height: double.infinity,
-          width: double.infinity,
-          child: Image(
-            image: AssetImage('assets/dice_background.png'),
-            fit: BoxFit.cover,
-          ),
-        ),
-        // Bottom Navigation Bar
-        bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: green,
-          fixedColor: green,
-          items: [
-            BottomNavigationBarItem(
-              icon: SizedBox(
-                width: 50,
-                height: 50,
-              ),
-              label: '',
-              tooltip: 'Settings',
+          body: SizedBox(
+            height: double.infinity,
+            width: double.infinity,
+            child: Image(
+              image: AssetImage('assets/dice_background.png'),
+              fit: BoxFit.fitHeight,
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.question_mark),
-              label: '',
-              tooltip: 'About the Game',
-            )
-          ],
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-        ),
-        // FloatingButton
-        floatingActionButton: FloatingActionButton(
-          onPressed: _startGame,
-          tooltip: 'Start Game',
-          child: Icon(Icons.add),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+          ),
+          bottomNavigationBar: SizedBox(
+            height: 75.0,
+            child: BottomNavigationBar(
+              // currentIndex: currentIndex,
+              // onTap: onTap,
+              type: BottomNavigationBarType.fixed,
+              backgroundColor: Constants.darkGreen[600],
+              selectedItemColor: Color(0xFFFFFFFF),
+              unselectedItemColor: Color(0xFFFFFFFF),
+              elevation: 0,
+              items: const [
+                BottomNavigationBarItem(label: 'Settings', icon: Icon(Icons.settings, size: 35.0)),
+                BottomNavigationBarItem(label: 'About', icon: Icon(Icons.question_mark, size: 35.0)),
+              ],
+            ),
+          ),
+
+          // FloatingButton
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+          floatingActionButton: Container(
+            margin: EdgeInsets.only(bottom: 20),
+            width: 75.0,
+            child: FloatingActionButton(
+              onPressed: _startGame,
+              tooltip: 'Start Game',
+              backgroundColor: Colors.white,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10.0))),
+              foregroundColor: Constants.darkGreen,
+              child: Icon(Icons.add, size: 35.0),
+            ),
+          )
       ),
     );
   }
 }
+
+
