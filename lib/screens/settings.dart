@@ -10,7 +10,6 @@ class Settings extends StatelessWidget {
     return MaterialApp(
       title: 'Material App',
       debugShowCheckedModeBanner: false,
-
       home: Scaffold(
         appBar: AppBar(
           title: Text('Material App Bar'),

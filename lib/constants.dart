@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Constants {
-  static const MaterialColor darkGreen = MaterialColor (
+  static const MaterialColor darkGreen = MaterialColor(
     _darkGreenValue,
     <int, Color>{
       50: Color(0xFF8AB299),
@@ -18,7 +18,7 @@ class Constants {
   );
   static const int _darkGreenValue = 0xFF166534;
 
-  static const MaterialColor lightGreen = MaterialColor (
+  static const MaterialColor lightGreen = MaterialColor(
     _lightGreenValue,
     <int, Color>{
       50: Color(0xFF90E2AE),
@@ -45,7 +45,6 @@ class Constants {
     primaryColor: darkGreen,
     backgroundColor: lightGreen,
     canvasColor: lightGreen,
-
     textTheme: TextTheme(
       bodyText1: _defaultTextStyle.copyWith(
         fontSize: 18,

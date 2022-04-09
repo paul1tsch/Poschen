@@ -40,42 +40,51 @@ class _StartScreenState extends State<StartScreen> {
           bottomNavigationBar: NavigationBarTheme(
             data: NavigationBarThemeData(
               indicatorColor: Colors.transparent,
-              labelTextStyle: MaterialStateProperty.all(
-                  TextStyle(fontSize: 0, fontWeight: FontWeight.w600, fontFamily: 'Inter',)
-              ),
+              labelTextStyle: MaterialStateProperty.all(TextStyle(
+                fontSize: 0,
+                fontWeight: FontWeight.w600,
+                fontFamily: 'Inter',
+              )),
             ),
             child: NavigationBar(
               height: 60,
               selectedIndex: index,
               onDestinationSelected: (index) =>
-              setState(() => this.index = index),
+                  setState(() => this.index = index),
               backgroundColor: Constants.darkGreen[600],
               destinations: const [
-                NavigationDestination(label: 'Settings', icon: Icon(Icons.settings, size: 35.0, color: Colors.white)),
-                NavigationDestination(label: 'Home', icon: Icon(Icons.home, size: 35.0, color: Colors.white)),
-                NavigationDestination(label: 'About', icon: Icon(Icons.question_mark, size: 35.0, color: Colors.white)),
+                NavigationDestination(
+                    label: 'Settings',
+                    icon:
+                        Icon(Icons.settings, size: 35.0, color: Colors.white)),
+                NavigationDestination(
+                    label: 'Home',
+                    icon: Icon(Icons.home, size: 35.0, color: Colors.white)),
+                NavigationDestination(
+                    label: 'About',
+                    icon: Icon(Icons.question_mark,
+                        size: 35.0, color: Colors.white)),
               ],
             ),
           ),
 
           // FloatingButton
-          floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerFloat,
           floatingActionButton: Container(
             width: 75.0,
             child: FloatingActionButton(
               onPressed: _startGame,
               tooltip: 'Start Game',
               backgroundColor: Colors.white,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10.0))),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10.0))),
               foregroundColor: Constants.darkGreen,
               child: Icon(Icons.add, size: 35.0),
             ),
-          )
-      ),
+          )),
     );
   }
 
-  void _startGame() {
-  }
+  void _startGame() {}
 }
-
