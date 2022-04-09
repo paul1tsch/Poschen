@@ -10,65 +10,57 @@ void main() {
   runApp(StartScreen());
 }
 
-void _startGame() {}
-//
-//
-// List pages = [
-//   Settings(),
-//   Play(),
-//   About()
-// ];
-//
-// int currentIndex = 0;
-// void onTap(int index){
-//   setState((){
-//     currentIndex = index;
-//   });
-// }
-
-
-class StartScreen extends StatelessWidget{
+class StartScreen extends StatefulWidget {
   const StartScreen({Key? key}) : super(key: key);
 
   @override
+  State<StartScreen> createState() => _StartScreenState();
+}
+
+class _StartScreenState extends State<StartScreen> {
+  int index = 1;
+  final screens = [
+    Settings(),
+    SizedBox(
+      height: double.infinity,
+      width: double.infinity,
+      child: Image.asset('assets/dice_background.png', fit: BoxFit.fitHeight),
+    ),
+    About(),
+  ];
+
+  @override
   Widget build(BuildContext context) {
-
-
-
     return MaterialApp(
       title: 'Poschen',
       theme: Constants.theme,
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-          body: SizedBox(
-            height: double.infinity,
-            width: double.infinity,
-            child: Image(
-              image: AssetImage('assets/dice_background.png'),
-              fit: BoxFit.fitHeight,
+          body: screens[index],
+          bottomNavigationBar: NavigationBarTheme(
+            data: NavigationBarThemeData(
+              indicatorColor: Colors.transparent,
+              labelTextStyle: MaterialStateProperty.all(
+                  TextStyle(fontSize: 0, fontWeight: FontWeight.w600, fontFamily: 'Inter',)
+              ),
             ),
-          ),
-          bottomNavigationBar: SizedBox(
-            height: 75.0,
-            child: BottomNavigationBar(
-              // currentIndex: currentIndex,
-              // onTap: onTap,
-              type: BottomNavigationBarType.fixed,
+            child: NavigationBar(
+              height: 60,
+              selectedIndex: index,
+              onDestinationSelected: (index) =>
+              setState(() => this.index = index),
               backgroundColor: Constants.darkGreen[600],
-              selectedItemColor: Color(0xFFFFFFFF),
-              unselectedItemColor: Color(0xFFFFFFFF),
-              elevation: 0,
-              items: const [
-                BottomNavigationBarItem(label: 'Settings', icon: Icon(Icons.settings, size: 35.0)),
-                BottomNavigationBarItem(label: 'About', icon: Icon(Icons.question_mark, size: 35.0)),
+              destinations: const [
+                NavigationDestination(label: 'Settings', icon: Icon(Icons.settings, size: 35.0, color: Colors.white)),
+                NavigationDestination(label: 'Home', icon: Icon(Icons.home, size: 35.0, color: Colors.white)),
+                NavigationDestination(label: 'About', icon: Icon(Icons.question_mark, size: 35.0, color: Colors.white)),
               ],
             ),
           ),
 
           // FloatingButton
-          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
           floatingActionButton: Container(
-            margin: EdgeInsets.only(bottom: 20),
             width: 75.0,
             child: FloatingActionButton(
               onPressed: _startGame,
@@ -82,6 +74,8 @@ class StartScreen extends StatelessWidget{
       ),
     );
   }
-}
 
+  void _startGame() {
+  }
+}
 

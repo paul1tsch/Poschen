@@ -38,6 +38,7 @@ class Constants {
   static const TextStyle _defaultTextStyle = TextStyle(
     fontFamily: 'Inter',
     fontSize: 16,
+    color: Colors.black,
   );
 
   static final theme = ThemeData(
@@ -46,15 +47,20 @@ class Constants {
     canvasColor: lightGreen,
 
     textTheme: TextTheme(
+      bodyText1: _defaultTextStyle.copyWith(
+        fontSize: 18,
+        fontWeight: FontWeight.w600,
+      ),
       bodyText2: _defaultTextStyle,
       button: _defaultTextStyle,
       subtitle1: _defaultTextStyle,
       overline: _defaultTextStyle.copyWith(
-        fontSize: 20,
+        fontSize: 22,
+        fontWeight: FontWeight.w600,
       ),
       headline1: _defaultTextStyle.copyWith(
         fontSize: 36,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w700,
       ),
     ),
   ).copyWith(
