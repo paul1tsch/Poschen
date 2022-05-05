@@ -52,13 +52,16 @@ class Constants {
       ),
       bodyText2: _defaultTextStyle,
       button: _defaultTextStyle,
-      subtitle1: _defaultTextStyle,
+      subtitle1: _defaultTextStyle.copyWith(
+        fontSize: 22,
+        fontWeight: FontWeight.w700,
+      ),
       overline: _defaultTextStyle.copyWith(
         fontSize: 22,
         fontWeight: FontWeight.w600,
       ),
       headline1: _defaultTextStyle.copyWith(
-        fontSize: 36,
+        fontSize: 30,
         fontWeight: FontWeight.w700,
       ),
     ),

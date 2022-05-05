@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:poschen/constants.dart';
+import 'package:poschen/main.dart';
 
 void main() => runApp(About());
 
@@ -14,10 +15,20 @@ class About extends StatelessWidget {
       theme: Constants.theme,
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+          centerTitle: true,
+          toolbarHeight: 50.0,
+          backgroundColor: Colors.white,
+          elevation: 0,
+        ),
         backgroundColor: Colors.white,
         body: SafeArea(
           child: Container(
-            margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 60.0),
+            margin: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 20.0),
             padding: const EdgeInsets.all(25.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -133,7 +144,7 @@ class About extends StatelessWidget {
                     ),
                   ),
                 ),
-              ],
+                ],
             ),
           ),
         ),
