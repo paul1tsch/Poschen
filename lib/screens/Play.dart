@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:poschen/constants.dart';
 import 'package:poschen/main.dart';
 
-void main() => runApp(Play());
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  runApp(Play());
+}
 
 class Play extends StatelessWidget {
   const Play({Key? key}) : super(key: key);
@@ -14,7 +18,6 @@ class Play extends StatelessWidget {
       title: 'Material App',
       theme: Constants.theme,
       debugShowCheckedModeBanner: false,
-
       home: Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -28,33 +31,97 @@ class Play extends StatelessWidget {
         backgroundColor: Colors.white,
         body: SafeArea(
           child: Container(
-            margin: const EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 20.0),
+            margin: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 20.0),
             padding: const EdgeInsets.all(25.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  'Play',
+                  'Players',
                   style: Theme.of(context).textTheme.headline1,
                 ),
-                Expanded(
-                  child: SingleChildScrollView(
-                    padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
-                    scrollDirection: Axis.vertical,
-                    child: RichText(
-                      textAlign: TextAlign.justify,
-                      text: TextSpan(
-                        children: <TextSpan>[
-                          TextSpan(
-                              text: 'Play\n',
-                              style: Theme.of(context).textTheme.overline),
-                          TextSpan(
-                              text:
-                                  'Have fun playing Poschen!',
-                              style: Theme.of(context).textTheme.bodyText2),
-                        ],
-                      ),
+                Row(
+                  children: const <Widget>[
+                    Icon(
+                      Icons.notification_important,
+                      color: Colors.redAccent,
+                      size: 14.0,
                     ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 5.0),
+                      child: Text('Maximum 10 Players',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                          )),
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20.0),
+                  child: Row(
+                    children: <Widget>[
+                      ElevatedButton.icon(
+                        icon: const Icon(
+                          Icons.add,
+                          color: Colors.white,
+                          size: 16.0,
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          primary: Constants.darkGreen,
+                          alignment: AlignmentGeometry.lerp(
+                              Alignment.centerLeft, Alignment.centerLeft, 0.0),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 0),
+                        ),
+                        label: const Text('Add Player',
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.white)),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return const MyApp();
+                              },
+                            ),
+                          );
+                        },
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10.0),
+                        child: OutlinedButton.icon(
+                          style: OutlinedButton.styleFrom(
+                            side: const BorderSide(
+                                width: 1.0, color: Constants.darkGreen),
+                          ),
+                          icon: const Icon(
+                            Icons.history,
+                            color: Constants.darkGreen,
+                            size: 16.0,
+                          ),
+                          label: const Text(
+                            'History',
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: Constants.darkGreen),
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return const MyApp();
+                                },
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 Padding(
@@ -63,15 +130,14 @@ class Play extends StatelessWidget {
                     icon: const Icon(
                       Icons.arrow_back_ios,
                       color: Colors.white,
-                      size: 24.0,
+                      size: 0.0,
                     ),
                     style: ElevatedButton.styleFrom(
                       primary: Constants.darkGreen,
-                      fixedSize: const Size(120, 50),
                       padding: const EdgeInsets.symmetric(
                           horizontal: 20, vertical: 12),
                     ),
-                    label: const Text('Play',
+                    label: const Text('Start Game',
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w500,
