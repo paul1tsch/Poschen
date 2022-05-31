@@ -50,7 +50,6 @@ class Constants {
         fontSize: 18,
         fontWeight: FontWeight.w600,
       ),
-      bodyText2: _defaultTextStyle,
       button: _defaultTextStyle,
       subtitle1: _defaultTextStyle.copyWith(
         fontSize: 22,
