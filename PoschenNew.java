@@ -4,8 +4,6 @@ public class PoschenNew {
     private static Map<Integer, Player> players = new HashMap<>();
     Scanner scanner = new Scanner(System.in);
     Random random = new Random();
-    private int valueFirstThrow;
-    private int valueSecondThrow;
     private int dice1;
     private int dice2;
 
@@ -31,15 +29,7 @@ public class PoschenNew {
         return dice2;
     }
 
-    public int getValueFirstThrow(String throw1) {
-        valueFirstThrow = Integer.valueOf(throw1);
-        return valueFirstThrow;
-    }
 
-    public int getValueSecondThrow(String throw2) {
-        valueSecondThrow = Integer.valueOf(throw2);
-        return valueSecondThrow;
-    }
 
     //Dice
     public String getDice(int dice1, int dice2) {
@@ -101,9 +91,12 @@ public class PoschenNew {
 
     //Players
     public void initPlayers() {
-        players.put(1, new Player("David", 1, 1));
-        players.put(2, new Player("Felix", 1, 2));
-        players.put(3, new Player("Arthur", 1, 3));
+        players.put(1, new Player("Domina", 3, 1));
+        players.put(2, new Player("Felix", 3, 2));
+        players.put(3, new Player("Arthur", 3, 3));
+        players.put(4, new Player("David", 3, 4));
+        players.put(5, new Player("Lucas", 3, 5));
+        players.put(6, new Player("Chrisi", 3, 6));
 
     }
 
@@ -156,6 +149,7 @@ public class PoschenNew {
                     //System.out.println(curr + " is going to be removed");
                     players.remove(curr.getKey());
                     System.out.println("Remaining players: " + players);
+                    System.out.println("\n\n\n");
                     break;
                 }
             }
@@ -179,10 +173,22 @@ public class PoschenNew {
         System.exit(0);
     }
 
+    public int getThrowValue(int input){
+        String firstDigit = String.valueOf(input).substring(0, 1);
+        String secondDigit = String.valueOf(input).substring(1,2);
+        String fullDice = getDice(Integer.parseInt(firstDigit), Integer.parseInt(secondDigit));
+        return Integer.parseInt(fullDice);
+    }
+
     //Game
 
     public boolean lowerThanThrow(int realThrow, int throwToCompare) {
-        if (isAposch(realThrow) == true && isAposch(throwToCompare) == false) {
+        if(isMaier(realThrow) == true && isMaier(throwToCompare) == false){
+            return false;
+        } else if(isMaier(realThrow) == false && isMaier(throwToCompare) == true){
+            return true;
+        }
+        else if (isAposch(realThrow) == true && isAposch(throwToCompare) == false) {
             return false;
         } else if (isAposch(realThrow) == false && isAposch(throwToCompare) == true) {
             return true;
@@ -193,15 +199,25 @@ public class PoschenNew {
     }
 
     public void startGame(Player playerA, Player playerB, int valueToOverthrow) {
-        System.out.println("Its now your turn " + playerA.getName() + "!");
+        System.out.println("Its now your turn " + playerA.getName() + "! (" + playerA.getLives()+" lives remaining)");
         int firstThrow = Integer.parseInt(getDice(getDice1(), getDice2()));
         int realThrow = firstThrow;
         //int secondThrow = Integer.parseInt(getDice(getDice1(), getDice2()));
 
-        System.out.println(playerA.getName() + " " + firstThrow + " (current lives: " + playerA.getLives() + ")");
+        //System.out.println(playerA.getName() + " " + firstThrow + " (current lives: " + playerA.getLives() + ")");
         if (valueToOverthrow > 0 && isMaier(firstThrow) == false) {
             if (lowerThanThrow(firstThrow, valueToOverthrow) == true || firstThrow == valueToOverthrow) {
                 firstThrow = getNextValue(valueToOverthrow);
+            }
+            System.out.println("You throwed " + realThrow +".");
+            System.out.println("Please type in your value, but keep in mind that it has to be at least " + firstThrow +": ");
+            int value = scanner.nextInt();
+            value = getThrowValue(value);
+            if(lowerThanThrow(value, valueToOverthrow) == true || value == valueToOverthrow){
+                System.out.println("You typed in a wrong value, so you automatically call the number " + firstThrow);
+            }
+            else{
+                firstThrow = value;
             }
         }
         if (isMaier(firstThrow)) {
@@ -213,7 +229,12 @@ public class PoschenNew {
 
     public void realGame(Player playerA, int dicePlayerA, Player playerB, int valueToOverthrow, int realThrow) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println(playerA.getName() + " called " + dicePlayerA);
+        if(valueToOverthrow > 0) {
+            System.out.println(playerA.getName() + " called " + getName(String.valueOf(dicePlayerA)) + ", previous call was " + getName(String.valueOf(valueToOverthrow)));
+        }
+        else{
+            System.out.println(playerA.getName() + " called " + getName(String.valueOf(dicePlayerA)));
+        }
         System.out.println(playerB.getName() + " has to decide if he believes " + playerA.getName() + "\t[b] for believe|[n] not believe");
         char blieve = scanner.next().charAt(0);
         switch (blieve) {
@@ -236,11 +257,13 @@ public class PoschenNew {
     public void notBelieveSituation(Player playerA, Player playerB, int dicePlayerA, int valueToOverthrow, int realThrow) {
         if (lowerThanThrow(realThrow, valueToOverthrow)) {
             System.out.println("######" + playerA.getName() + " really lied to " + playerB.getName());
-            System.out.println("Now " + playerA.getName() + " will lose 1 life");
+            System.out.println("Now " + playerA.getName() + " will lose 1 life, the actual throw was " + realThrow);
+            System.out.println("\n\n\n");
             removeLive(playerA, 1);
         } else if (lowerThanThrow(realThrow, valueToOverthrow) == false) {
             System.out.println("#####" + playerA.getName() + " told the truth");
             System.out.println("Now " + playerB.getName() + " will lose 1 life");
+            System.out.println("\n\n\n");
             removeLive(playerB, 1);
         }
     }
@@ -255,10 +278,12 @@ public class PoschenNew {
                 if (isMaier(realThrow) == false) {
                     System.out.println("Oh no! " + playerWithMaier.getName() + " lied to " + playerWithoutMaier.getName());
                     System.out.println("Now " + playerWithMaier.getName() + " will lose 2 lives!");
+                    System.out.println("\n\n\n");
                     removeLive(playerWithMaier, 2);
                 } else {
                     System.out.println(playerWithMaier.getName() + " really has a Maier!");
                     System.out.println("Now " + playerWithoutMaier.getName() + " will lose 2 lives!");
+                    System.out.println("\n\n\n");
                     removeLive(playerWithoutMaier, 2);
                 }
                 break;
@@ -266,6 +291,7 @@ public class PoschenNew {
             case 'b':
                 System.out.println(playerWithoutMaier.getName() + " believes " + playerWithMaier.getName() + " and only loses 1 live");
                 System.out.println("No one will ever know if " + playerWithMaier.getName() + " had a Maier...");
+                System.out.println("\n\n\n");
                 removeLive(playerWithoutMaier, 1);
         }
     }
